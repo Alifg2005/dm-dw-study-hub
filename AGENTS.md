@@ -6,7 +6,7 @@ Every AI agent and contributor must read this file in full before modifying the 
 
 ## 1. Project identity
 
-- **Owner:** ALi Feras Alghanim (keep this exact capitalization in the UI).
+- **Owner:** Ali Feras Alghanim (keep this exact capitalization in the UI).
 - **Course:** Data Mining & Data Warehouse.
 - **Purpose:** a personal academic study platform for reviewing chapters, practicing written questions, and self-testing with MCQs.
 - **Hard limits:** no authentication, backend, database, payments, runtime AI calls, or API keys. The site is a static frontend.
@@ -70,14 +70,23 @@ Routes: `/`, `/chapters/:slug`, `/chapters/:slug/quiz`, `/chapters/:slug/practic
 `src/types/chapter.ts` is authoritative. A chapter file has this shape and default-exports a `Chapter`:
 
 ```ts
-import type { Chapter } from '../../types/chapter'
+import type { Chapter } from "../../types/chapter";
 
 const chapter: Chapter = {
-  meta, overview, objectives, keyConcepts, definitions,
-  sections, comparisons, examples, takeaways, examNotes,
-  mcqs, written,
-}
-export default chapter
+  meta,
+  overview,
+  objectives,
+  keyConcepts,
+  definitions,
+  sections,
+  comparisons,
+  examples,
+  takeaways,
+  examNotes,
+  mcqs,
+  written,
+};
+export default chapter;
 ```
 
 - `meta.slug` must equal the file name without the extension (`chapter-07`), and `meta.number` must match it.
@@ -105,16 +114,16 @@ export default chapter
 
 Use only those that fit the chapter. Minimum 12 questions and 4 formats.
 
-| `format` | Purpose | Extra fields |
-| --- | --- | --- |
-| `short` | Concise explanation | |
-| `definition` | Term to definition, or the reverse | |
-| `matching` | Interactive matching, at least 3 pairs | `pairs` |
-| `compare` | Compare and contrast | `answerTable` recommended |
-| `fill-blank` | Interactive, `___` marks each blank | `sentence`, `blanks` |
-| `list` | Features, steps, advantages | |
-| `explain` | Explain and discuss | |
-| `scenario` | Apply concepts to a situation | |
+| `format`     | Purpose                                | Extra fields              |
+| ------------ | -------------------------------------- | ------------------------- |
+| `short`      | Concise explanation                    |                           |
+| `definition` | Term to definition, or the reverse     |                           |
+| `matching`   | Interactive matching, at least 3 pairs | `pairs`                   |
+| `compare`    | Compare and contrast                   | `answerTable` recommended |
+| `fill-blank` | Interactive, `___` marks each blank    | `sentence`, `blanks`      |
+| `list`       | Features, steps, advantages            |                           |
+| `explain`    | Explain and discuss                    |                           |
+| `scenario`   | Apply concepts to a situation          |                           |
 
 Every question has `shortAnswer` (concise, memorizable) and `detailedAnswer` (paragraphs). Short answers appear by default, except on interactive exercises and in self-test mode, where they are revealed on request.
 

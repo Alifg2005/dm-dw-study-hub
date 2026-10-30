@@ -1,6 +1,6 @@
 # Data Mining & Data Warehouse Study Hub
 
-A personal academic study platform by **ALi Feras Alghanim**. It provides structured chapter reviews, 20-question quizzes, and written exam practice for the Data Mining & Data Warehouse course.
+A personal academic study platform by **Ali Feras Alghanim**. It provides structured chapter reviews, 20-question quizzes, and written exam practice for the Data Mining & Data Warehouse course.
 
 There are no accounts, backend, database, or API keys. All content is static data generated during development, so the deployed site runs on its own.
 

@@ -16,7 +16,7 @@ export function HomePage() {
     <>
       <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pb-20 lg:pt-16">
         <div className="rise">
-          <p className="text-lg font-medium text-accent-text">ALi Feras Alghanim</p>
+          <p className="text-lg font-medium text-accent-text">Ali Feras  Alghanim</p>
           <h1 className="mt-3 font-display text-5xl font-semibold leading-[1.02] tracking-tighter md:text-6xl xl:text-7xl">
             Data Mining & Data Warehouse
           </h1>
