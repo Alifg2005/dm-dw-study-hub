@@ -1,0 +1,9 @@
+private-materials/
+*.pdf
+*.ppt
+*.pptx
+*.pptm
+*.key
+*.potx
+.env
+.env.*

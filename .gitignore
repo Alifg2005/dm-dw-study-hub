@@ -1,0 +1,49 @@
+# Private course materials: never commit, never deploy
+private-materials/
+private_materials/
+course-materials/
+*.pdf
+*.ppt
+*.pptx
+*.pptm
+*.potx
+*.key
+
+# Temporary source-extraction output
+extracted/
+extraction/
+.extraction/
+*.extracted.txt
+*.slides.txt
+~$*
+
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+
+# Local environment
+.env
+.env.*
+.vercel/
+
+# Logs
+*.log
+
+# Local test artefacts
+test-results/
+playwright-report/
+.playwright-mcp/
+
+# Knowledge-graph tool output
+graphify-out/
+
+# Editors and operating systems
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.local
