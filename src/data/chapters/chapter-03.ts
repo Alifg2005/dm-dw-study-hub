@@ -30,7 +30,7 @@ const chapter: Chapter = {
 
   keyConcepts: [
     { term: 'Decision support', summary: 'A warehouse serves analysis by knowledge workers rather than daily transactions.' },
-    { term: 'Subject, integrated, time-variant, nonvolatile', summary: 'The four properties in Inmon\'s definition, and a common exam question.' },
+    { term: 'Subject, integrated, time-variant, nonvolatile', summary: 'The four properties in Inmon\'s definition of a data warehouse.' },
     { term: 'Multidimensional model', summary: 'Data is viewed as a cube of dimensions and measures.' },
     { term: 'Lattice of cuboids', summary: 'A cube is a set of cuboids at every level of summarization, from the base to the apex.' },
     { term: 'Raw versus governed', summary: 'Lakes keep raw data at scale, warehouses keep governed data, and lakehouses combine the two.' },
@@ -90,7 +90,7 @@ const chapter: Chapter = {
         },
         {
           type: 'paragraph',
-          text: 'The source also notes that more and more systems now perform OLAP analysis directly on relational databases.',
+          text: 'More and more systems now perform OLAP analysis directly on relational databases.',
         },
       ],
     },
@@ -194,7 +194,7 @@ const chapter: Chapter = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'The source separates two ecosystems. **Analytic use cases** use warehouses, structured data, and SQL or Python. **Operational use cases** use lakes, raw data, and Java, Scala, Python, R, and SQL. These may converge, and the lakehouse is the result.',
+          text: 'There are two ecosystems. **Analytic use cases** use warehouses, structured data, and SQL or Python. **Operational use cases** use lakes, raw data, and Java, Scala, Python, R, and SQL. These may converge, and the lakehouse is the result.',
         },
         {
           type: 'list',
@@ -258,7 +258,7 @@ const chapter: Chapter = {
         {
           type: 'callout',
           tone: 'key',
-          title: 'Example schemas from the source',
+          title: 'Example schemas',
           text: 'The star example has a Sales fact table (`time_key`, `item_key`, `branch_key`, `location_key`, `units_sold`, `dollars_sold`, `avg_sales`). The snowflake normalizes supplier out of item and city out of location. The constellation adds a Shipping fact table sharing time, item, and location.',
         },
         {
@@ -285,8 +285,8 @@ const chapter: Chapter = {
         {
           type: 'callout',
           tone: 'supplement',
-          title: 'The questions the slide leaves open',
-          text: 'The slide asks whether min_N() and standard_deviation() are algebraic. Both are generally treated as algebraic: min_N needs only a bounded N values per partition, and standard deviation can be computed from count, sum, and the sum of squares. Confirm with your instructor, as the slide gives no answer.',
+          title: 'Open question',
+          text: 'Are min_N() and standard_deviation() algebraic? Both are generally treated as algebraic: min_N needs only a bounded N values per partition, and standard deviation can be computed from count, sum, and the sum of squares.',
         },
       ],
     },
@@ -296,7 +296,7 @@ const chapter: Chapter = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'Aggregates and group-bys are central to analysis. In the TPC benchmarks cited by the source, 6 standard benchmarks have 83 queries, with aggregates used 59 times and group-bys used 20 times.',
+          text: 'Aggregates and group-bys are central to analysis. In the TPC benchmarks, 6 standard benchmarks have 83 queries, with aggregates used 59 times and group-bys used 20 times.',
         },
         {
           type: 'table',
@@ -327,13 +327,13 @@ const chapter: Chapter = {
             'Each record is represented by one bit, typically 1 or 0, showing whether a condition holds.',
             'n records take n bits, packed into n/8 bytes or n/32 words.',
             'Each bit corresponds to a row-id. If the j-th bit is in the p-th byte, then **row-id = p × 8 + j**.',
-            'Counting: a lookup table such as `shcount[]` stores the number of 1-bits for each byte value. For example, `shcount[01100101] = 4`. The count is the sum of `shcount[B[i]]` over all bytes.',
+            'Counting: a lookup table such as `shcount[]` stores the number of 1-bits (or 0s) for each byte value. For example, `shcount[01100101] = 4`. The count is the sum of `shcount[B[i]]` over all bytes.',
           ],
         },
         {
           type: 'callout',
-          tone: 'source-note',
-          text: 'One slide describes the lookup table as counting 1-bits, while the following figure counts 0s in each byte. The idea is the same: precompute the answer per byte and add up.',
+          tone: 'key',
+          text: 'The idea is the same: precompute the answer per byte and add up.',
         },
         {
           type: 'list',
@@ -472,8 +472,8 @@ const chapter: Chapter = {
   ],
 
   examNotes: [
-    'Inmon\'s definition is highly examinable. Learn all four properties with one supporting detail each.',
-    'Keep the OLTP versus OLAP table in memory. Exams often ask for about five differences.',
+    'Inmon\'s definition is central. Learn all four properties with one supporting detail each.',
+    'Keep the OLTP versus OLAP table in memory, with at least five differences.',
     'Nonvolatile does not mean the warehouse never changes. It means no operational updates: only initial loading and access, plus refresh from the sources.',
     'Be able to place a function in a category: avg is algebraic, and median is holistic.',
     'Be ready to name the operation from a short description, and to calculate row-ids with p × 8 + j.',
@@ -494,7 +494,7 @@ const chapter: Chapter = {
       question: 'Hotel prices from several sources differ on currency, tax, and included breakfast, and are converted to a common form when loaded. Which property is this?',
       options: ['Integrated', 'Nonvolatile', 'Time-variant', 'Subject-oriented'],
       correctIndex: 0,
-      explanation: 'Integration ensures consistency among heterogeneous sources. The source uses this hotel price example to illustrate it.',
+      explanation: 'Integration ensures consistency among heterogeneous sources. Hotel prices are one example.',
     },
     {
       id: 'c3-q3', topic: 'Warehouse properties', difficulty: 'medium', skill: 'concept',
@@ -515,7 +515,7 @@ const chapter: Chapter = {
       question: 'Which is a data-related reason for separating the warehouse from operational databases?',
       options: ['Decision support needs historical data that operational databases do not typically maintain', 'Operational databases cannot store numbers', 'Warehouses require more concurrency control', 'Operational data is already consolidated across all sources'],
       correctIndex: 0,
-      explanation: 'The source lists missing historical data, the need for consolidation, and data quality reconciliation as different data needs.',
+      explanation: 'Missing historical data, the need for consolidation, and data quality reconciliation are the different data needs.',
     },
     {
       id: 'c3-q6', topic: 'Architecture', difficulty: 'easy', skill: 'technical',
@@ -557,7 +557,7 @@ const chapter: Chapter = {
       question: 'A data lake has hundreds of thousands of data sets, and users cannot understand columns named "VECTOR" and "COORDINATE". Which task addresses this most directly?',
       options: ['Metadata management', 'Decimal scaling', 'Drill-down', 'Horizontal storage'],
       correctIndex: 0,
-      explanation: 'The source identifies metadata management as the core task of building lakes, using these unhelpful column names as its illustration.',
+      explanation: 'Metadata management is the core task of building lakes, and unhelpful column names like these illustrate why.',
     },
     {
       id: 'c3-q12', topic: 'Lakehouses', difficulty: 'medium', skill: 'comparison',
@@ -585,7 +585,7 @@ const chapter: Chapter = {
       question: 'A cube has the dimensions product, date, and country, with no hierarchies. How many cuboids are in its lattice?',
       options: ['8', '3', '6', '9'],
       correctIndex: 0,
-      explanation: 'One 0-D apex, three 1-D, three 2-D, and one 3-D base cuboid make 8 in total, as in the source\'s sample cube.',
+      explanation: 'One 0-D apex, three 1-D, three 2-D, and one 3-D base cuboid make 8 in total.',
     },
     {
       id: 'c3-q16', topic: 'Schemas', difficulty: 'medium', skill: 'scenario',
@@ -635,7 +635,7 @@ const chapter: Chapter = {
       id: 'c3-w2', format: 'short', topic: 'Bitmap index',
       prompt: 'Why does a bitmap index only suit low-cardinality categorical data?',
       shortAnswer: 'Each distinct value needs its own bit per entry, so high-cardinality attributes become costly. Values like sale amounts are unsuitable.',
-      detailedAnswer: ['Each row needs a bit for each distinct value. The source notes that, naively, a customer\'s US state requires 50 bits per entry and asks how a sale in dollars could be represented. Gender, by contrast, is a natural fit.'],
+      detailedAnswer: ['Each row needs a bit for each distinct value. Naively, a customer\'s US state requires 50 bits per entry, and a high-cardinality value such as a sale in dollars is a poor fit. Gender, by contrast, is a natural fit.'],
     },
     {
       id: 'c3-w3', format: 'short', topic: 'Modern architectures',
@@ -707,7 +707,7 @@ const chapter: Chapter = {
         rows: [
           ['Fact tables', 'One', 'One', 'Multiple'],
           ['Dimension hierarchies', 'Not normalized', 'Partly normalized', 'Shared between facts'],
-          ['Source example', 'Sales', 'Sales with supplier and city tables', 'Sales and Shipping'],
+          ['Example', 'Sales', 'Sales with supplier and city tables', 'Sales and Shipping'],
         ],
       },
     },
@@ -765,7 +765,7 @@ const chapter: Chapter = {
       detailedAnswer: [
         'Performance: the DBMS is tuned for OLTP with indexing, concurrency control, and recovery, while the warehouse is tuned for complex OLAP queries and multidimensional views. Running both on one system would harm each.',
         'Data: decision support needs history, consolidation across sources, and reconciliation of inconsistent formats.',
-        'The source adds that more systems now run OLAP directly on relational databases, so this separation is not universal.',
+        'More systems now run OLAP directly on relational databases, so this separation is not universal.',
       ],
     },
     {
@@ -774,14 +774,14 @@ const chapter: Chapter = {
       shortAnswer: 'Fact tables are wide but queries use few attributes, so reading only those columns greatly reduces work.',
       detailedAnswer: [
         'A fact table can have tens or hundreds of attributes. Horizontal storage must read every attribute of every tuple it scans. Vertical storage reads only the needed lists.',
-        'In the source\'s example, a query on 3 of 100 attributes costs O(3n) rather than O(100n). The trade-off is that fetching one whole tuple requires searching all 100 lists, which is why horizontal storage suits OLTP.',
+        'For example, a query on 3 of 100 attributes costs O(3n) rather than O(100n). The trade-off is that fetching one whole tuple requires searching all 100 lists, which is why horizontal storage suits OLTP.',
       ],
     },
     {
       id: 'c3-w18', format: 'scenario', topic: 'Schemas and hierarchies',
       prompt: 'A retailer analyzes sales by day, product, and store, and also tracks shipments by day, product, and shipper. Which schema fits, and why?',
       shortAnswer: 'A fact constellation, because the Sales and Shipping fact tables share the day and product dimensions.',
-      detailedAnswer: ['There are two business processes, so two fact tables are needed. Sharing dimensions keeps the analysis consistent. This mirrors the source\'s Sales and Shipping example, viewed as a collection of stars.'],
+      detailedAnswer: ['There are two business processes, so two fact tables are needed. Sharing dimensions keeps the analysis consistent. This mirrors a Sales and Shipping design, viewed as a collection of stars.'],
     },
     {
       id: 'c3-w19', format: 'scenario', topic: 'Bitmap index',

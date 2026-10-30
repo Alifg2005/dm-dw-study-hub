@@ -75,7 +75,7 @@ const chapter: Chapter = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'Data mining turns a large collection of data into knowledge. The source calls the name a **misnomer**, since the accurate description would be "knowledge mining from data".',
+          text: 'Data mining turns a large collection of data into knowledge. The name is a **misnomer**, since the accurate description would be "knowledge mining from data".',
         },
         {
           type: 'list',
@@ -85,13 +85,13 @@ const chapter: Chapter = {
         {
           type: 'callout',
           tone: 'key',
-          title: 'Course example: Google Flu Trends',
+          title: 'Example: Google Flu Trends',
           text: 'Google found a close relationship between the number of people searching for flu-related information and the number with flu symptoms. This allowed flu activity to be estimated up to two weeks faster than traditional systems.',
         },
         {
           type: 'callout',
           tone: 'supplement',
-          text: 'A common way to remember this: we say "gold mining", not "rock mining", because we name the thing we want. By that logic, the goal here is knowledge, not data. The slides do not use this analogy.',
+          text: 'A common way to remember this: we say "gold mining", not "rock mining", because we name the thing we want. By that logic, the goal here is knowledge, not data.',
         },
       ],
     },
@@ -117,7 +117,7 @@ const chapter: Chapter = {
         },
         {
           type: 'paragraph',
-          text: 'The first four steps are grouped as **data preparation**. The slides list them as cleaning, integration, transformation, and selection, while the chapter summary lists selection before transformation. In both cases they all happen before the mining step.',
+          text: 'The first four steps are grouped as **data preparation**. Selection may come before or after transformation depending on the source. All four come before mining.',
         },
       ],
     },
@@ -170,7 +170,7 @@ const chapter: Chapter = {
         {
           type: 'table',
           table: {
-            headers: ['Function', 'What it does', 'Course example'],
+            headers: ['Function', 'What it does', 'Example'],
             rows: [
               ['**Multidimensional summarization**', 'Integrates and summarizes data with data warehouses, data cubes, and OLAP. Includes characterization and discrimination.', 'Contrasting dry and wet regions'],
               ['**Frequent patterns and associations**', 'Finds items that occur together and evaluates association and correlation.', '`Diaper → Beer [0.5%, 75%]`'],
@@ -183,11 +183,11 @@ const chapter: Chapter = {
         },
         {
           type: 'paragraph',
-          text: 'In the association rule `Diaper → Beer [0.5%, 75%]`, the two numbers are **support** and **confidence** respectively. The source then asks an important question: are strongly associated items also strongly correlated? Chapter 4 answers it.',
+          text: 'In the association rule `Diaper → Beer [0.5%, 75%]`, the two numbers are **support** and **confidence** respectively. An important question follows: are strongly associated items also strongly correlated? Chapter 4 answers it.',
         },
         {
           type: 'list',
-          title: 'Typical classification methods named in the source',
+          title: 'Typical classification methods',
           items: ['Decision trees', 'Naive Bayesian classification', 'Support vector machines', 'Neural networks', 'Rule-based and pattern-based classification', 'Logistic regression'],
         },
         {
@@ -245,12 +245,12 @@ const chapter: Chapter = {
         },
         {
           type: 'list',
-          title: 'Criteria named in the source',
+          title: 'Evaluation criteria',
           items: ['Descriptive versus predictive', 'Coverage', 'Typicality versus novelty', 'Accuracy', 'Timeliness'],
         },
         {
           type: 'paragraph',
-          text: 'The source also raises a further goal: instead of evaluating everything afterward, can we directly mine only the interesting knowledge?',
+          text: 'A further goal: instead of evaluating everything afterward, can we directly mine only the interesting knowledge?',
         },
       ],
     },
@@ -349,7 +349,7 @@ const chapter: Chapter = {
   examNotes: [
     'Be able to write the KDD steps in order and state which step is the actual mining.',
     'Know why "data mining" is a misnomer and give at least three alternative names.',
-    'Be ready to classify a data example as structured, semi-structured, or unstructured. Transactional and sequence data are semi-structured in this course.',
+    'Be ready to classify a data example as structured, semi-structured, or unstructured. Transactional and sequence data are treated as semi-structured.',
     'Do not confuse classification (labels known) with clustering (labels unknown). The word "unsupervised" signals clustering.',
     'Remember the order in `[0.5%, 75%]`: support first, confidence second.',
     'Learn the clustering principle exactly: maximize intra-class similarity and minimize inter-class similarity.',
@@ -365,10 +365,10 @@ const chapter: Chapter = {
     },
     {
       id: 'c1-q2', topic: 'What is data mining', difficulty: 'medium', skill: 'concept',
-      question: 'Why does the source describe the term "data mining" as a misnomer?',
+      question: 'Why is the term "data mining" considered a misnomer?',
       options: ['The process actually extracts knowledge from data, so "knowledge mining from data" is more accurate', 'The process only works on small data sets', 'Mining means deleting incorrect data', 'The field no longer uses data as its input'],
       correctIndex: 0,
-      explanation: 'The goal is knowledge, not data, so the source says it should be called knowledge mining from data.',
+      explanation: 'The goal is knowledge, not data, so it should be called knowledge mining from data.',
     },
     {
       id: 'c1-q3', topic: 'KDD process', difficulty: 'easy', skill: 'technical',
@@ -407,7 +407,7 @@ const chapter: Chapter = {
     },
     {
       id: 'c1-q8', topic: 'Data types', difficulty: 'hard', skill: 'analysis',
-      question: 'The source says software can be mined to find plagiarized modules or copy-and-paste bugs. What general point does this illustrate?',
+      question: 'Software can be mined to find plagiarized modules or copy-and-paste bugs. What general point does this illustrate?',
       options: ['Different kinds of patterns on the same data set can require different mining methods', 'Software data cannot be mined with standard methods', 'A single method is sufficient for any goal on one data set', 'Plagiarism detection is a form of data cleaning'],
       correctIndex: 0,
       explanation: 'The data is the same, but the goals differ, so the methods differ too. The method depends on both the data and the kind of pattern sought.',
@@ -438,7 +438,7 @@ const chapter: Chapter = {
       question: 'Which task is a typical application of classification?',
       options: ['Credit card fraud detection', 'Computing total annual sales', 'Rotating a data cube', 'Removing duplicate records'],
       correctIndex: 0,
-      explanation: 'Fraud detection predicts a class label for each transaction and is named in the source as a typical application.',
+      explanation: 'Fraud detection predicts a class label for each transaction and is a typical application of classification.',
     },
     {
       id: 'c1-q13', topic: 'Clustering', difficulty: 'medium', skill: 'comparison',
@@ -456,7 +456,7 @@ const chapter: Chapter = {
     },
     {
       id: 'c1-q15', topic: 'Outlier analysis', difficulty: 'hard', skill: 'analysis',
-      question: 'Why does the source say "one person\'s garbage could be another person\'s treasure" about outliers?',
+      question: 'Why might one say "one person\'s garbage could be another person\'s treasure" about outliers?',
       options: ['An object that looks like noise to one analysis may be the valuable finding in another, such as fraud', 'Outliers should always be deleted before mining', 'Outliers only appear in low-quality data', 'All outliers are measurement errors'],
       correctIndex: 0,
       explanation: 'Whether an outlier is noise or a meaningful exception depends on the goal. In fraud detection and rare event analysis it is the target.',
@@ -473,21 +473,21 @@ const chapter: Chapter = {
       question: 'Finding frequent substructures in chemical compounds is an example of:',
       options: ['Graph mining', 'Periodicity analysis', 'Trend analysis', 'Web usage mining'],
       correctIndex: 0,
-      explanation: 'The source lists finding frequent subgraphs, such as chemical compounds, under graph mining.',
+      explanation: 'Finding frequent subgraphs, such as chemical compounds, is a graph mining task.',
     },
     {
       id: 'c1-q18', topic: 'Evaluation', difficulty: 'hard', skill: 'scenario',
       question: 'A pattern holds strongly for one city during one week and nowhere else. According to the chapter, what is the concern?',
       options: ['It may fit only a certain dimension space and be transient or unrepresentative', 'It proves the data has been cleaned incorrectly', 'It must be a frequent itemset', 'It cannot be stored in a database'],
       correctIndex: 0,
-      explanation: 'The source warns that some patterns fit only certain dimensions such as time and location, and may not be representative or may be transient.',
+      explanation: 'Some patterns fit only certain dimensions such as time and location, and they may not be representative or may be transient.',
     },
     {
       id: 'c1-q19', topic: 'Confluence of disciplines', difficulty: 'hard', skill: 'analysis',
       question: 'Micro-array data with tens of thousands of dimensions is cited as a reason for needing multiple disciplines. Which challenge does it illustrate?',
       options: ['High dimensionality of data', 'Small data volumes', 'Lack of any numeric attributes', 'Purely structured relational storage'],
       correctIndex: 0,
-      explanation: 'The source uses micro-arrays specifically to illustrate high dimensionality, alongside data volume, complexity, and new applications.',
+      explanation: 'Micro-arrays illustrate high dimensionality, a challenge alongside data volume, complexity, and new applications.',
     },
     {
       id: 'c1-q20', topic: 'Data mining and society', difficulty: 'medium', skill: 'concept',
@@ -505,7 +505,7 @@ const chapter: Chapter = {
       shortAnswer: 'Discovering interesting patterns, models, and knowledge in large data sets. It is a misnomer because the output is knowledge, so "knowledge mining from data" is more accurate.',
       detailedAnswer: [
         'Data mining analyzes large data sets to extract interesting patterns, models, and other kinds of knowledge.',
-        'The name focuses on the data rather than what is obtained from it. What is extracted is knowledge, so the source suggests "knowledge mining from data" as the more accurate name. Related terms include KDD, pattern discovery, knowledge extraction, data analytics, and information harvesting.',
+        'The name focuses on the data rather than what is obtained from it. What is extracted is knowledge, so "knowledge mining from data" is the more accurate name. Related terms include KDD, pattern discovery, knowledge extraction, data analytics, and information harvesting.',
       ],
     },
     {
@@ -522,7 +522,7 @@ const chapter: Chapter = {
       prompt: 'Give two benefits and one risk of data mining for society.',
       shortAnswer: 'Benefits: scientific discovery and security protection. Risk: unintentional disclosure of confidential or personal information.',
       detailedAnswer: [
-        'Benefits named in the source include scientific discovery, business management, economic recovery, and security protection, such as real-time discovery of intruders and cyberattacks.',
+        'Benefits include scientific discovery, business management, economic recovery, and security protection, such as real-time discovery of intruders and cyberattacks.',
         'The risks are misuse and the unintentional disclosure of confidential business or government information, or of personal information. This motivates privacy-preserving data publishing and mining.',
       ],
     },
@@ -626,7 +626,7 @@ const chapter: Chapter = {
       shortAnswer: 'Data cleaning, data integration, data transformation, data selection, data mining, pattern evaluation, knowledge presentation.',
       detailedAnswer: [
         'Cleaning, integration, transformation, and selection make up data preparation. Mining then extracts patterns or models. Pattern evaluation identifies what is truly interesting, and knowledge presentation delivers the results.',
-        'The slides order selection last in preparation, while the chapter summary lists selection before transformation. Either way, all four come before mining.',
+        'Selection may come before or after transformation depending on the source. All four come before mining.',
       ],
     },
     {
@@ -659,7 +659,7 @@ const chapter: Chapter = {
       prompt: 'Discuss whether outliers should always be removed from a data set.',
       shortAnswer: 'No. They may be noise, but they may also be the valuable finding, as in fraud detection and rare event analysis.',
       detailedAnswer: [
-        'An outlier does not follow the general behavior of the data, which can mean an error or noise. The source frames this as "noise or exception?".',
+        'An outlier does not follow the general behavior of the data, which can mean an error or noise. The question is "noise or exception?".',
         'The decision depends on the goal. For fraud detection, unusual objects are exactly what we are looking for, so removing them would destroy the most useful information.',
       ],
     },
@@ -668,7 +668,7 @@ const chapter: Chapter = {
       prompt: 'A bank wants to (a) flag suspicious card transactions using past labeled fraud cases, and (b) group customers by behavior with no predefined groups. Which function suits each?',
       shortAnswer: '(a) Classification. (b) Cluster analysis.',
       detailedAnswer: [
-        'Task (a) has labeled history and predicts a class for new transactions, so it is supervised classification. The source names credit card fraud detection as a typical application.',
+        'Task (a) has labeled history and predicts a class for new transactions, so it is supervised classification. Credit card fraud detection is a typical application.',
         'Task (b) has no known labels and forms new groups by similarity, so it is unsupervised cluster analysis.',
       ],
     },
@@ -677,7 +677,7 @@ const chapter: Chapter = {
       prompt: 'A hospital plans to mine patient records to find disease patterns. Which concern from this chapter must it address, and how?',
       shortAnswer: 'Privacy and data security. It should use privacy-preserving mining and respect data sensitivity while still obtaining useful results.',
       detailedAnswer: [
-        'Mining can unintentionally disclose personal information, and medical data is highly sensitive. The philosophy from the source is to observe data sensitivity and preserve security and privacy while performing successful mining.',
+        'Mining can unintentionally disclose personal information, and medical data is highly sensitive. The guiding philosophy is to observe data sensitivity and preserve security and privacy while performing successful mining.',
         'The relevant field of work is privacy-preserving data publishing and mining.',
       ],
     },

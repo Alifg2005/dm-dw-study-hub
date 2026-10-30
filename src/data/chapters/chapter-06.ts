@@ -161,7 +161,7 @@ const chapter: Chapter = {
           title: 'Strengths and weaknesses',
           items: [
             '**Strengths:** fast and simple (mostly counting), often as accurate as decision trees, and it learns as it goes, as each new example updates the counts.',
-            '**Weakness:** it assumes clues are unrelated, which is rarely true. Fever and cough often appear together. The source names Bayesian Belief Networks (Chapter 7) as the fix.',
+            '**Weakness:** it assumes clues are unrelated, which is rarely true. Fever and cough often appear together. Bayesian Belief Networks (Chapter 7) address this.',
           ],
         },
       ],
@@ -324,17 +324,12 @@ const chapter: Chapter = {
             '**k-fold cross-validation:** partition into k mutually exclusive subsets of about equal size. At iteration i, D_{i} is the test set and the others form the training set. k = 10 is most popular.',
             '**Leave-one-out:** k equals the number of tuples, for small data.',
             '**Stratified cross-validation:** each fold has about the same class distribution as the initial data.',
-            '**Bootstrap:** named in the source but not covered.',
+            '**Bootstrap:** another estimation method, not covered in these notes.',
           ],
         },
         {
           type: 'paragraph',
           text: '**ROC curves** visually compare models, showing the trade-off between true positive rate (TP/P, vertical axis) and false positive rate (FP/N, horizontal axis), by varying the decision threshold. A perfect model has area 1.0. The closer the curve is to the diagonal (area 0.5), the less effective the model is.',
-        },
-        {
-          type: 'callout',
-          tone: 'source-note',
-          text: 'The chapter\'s first outline lists "Techniques to Improve Classification Accuracy", but later outlines drop it and no slides cover it. That topic is therefore not included here. Check with your instructor if it is examinable.',
         },
       ],
     },
@@ -538,7 +533,7 @@ const chapter: Chapter = {
     },
     {
       id: 'c6-q2', topic: 'Basic concepts', difficulty: 'medium', skill: 'concept',
-      question: 'If a test set is used to choose between candidate models, what does the source call it?',
+      question: 'If a test set is used to choose between candidate models, what is it called?',
       options: ['A validation (or development) set', 'A training set', 'A deployment set', 'A bootstrap set'],
       correctIndex: 0,
       explanation: 'When a test set is used to select or refine models, it is called a validation or development set.',
@@ -604,7 +599,7 @@ const chapter: Chapter = {
       question: 'Why might Naive Bayes struggle when fever and cough are both features?',
       options: ['It assumes that features are independent given the class, but these often appear together', 'It cannot handle medical data', 'It requires numeric features', 'It builds a very deep tree'],
       correctIndex: 0,
-      explanation: 'The naive independence assumption is rarely true. The source names Bayesian Belief Networks as the fix.',
+      explanation: 'The naive independence assumption is rarely true. Bayesian Belief Networks address this.',
     },
     {
       id: 'c6-q12', topic: 'Lazy learning', difficulty: 'easy', skill: 'comparison',
@@ -843,7 +838,7 @@ const chapter: Chapter = {
       id: 'c6-w20', format: 'scenario', topic: 'Choosing a classifier',
       prompt: 'A bank must give customers a clear reason for each loan decision. Which method from this chapter suits this best, and why?',
       shortAnswer: 'A decision tree, because it is a white box that is easy to explain, even to non-experts.',
-      detailedAnswer: ['The path from root to leaf is a readable series of conditions. The bank must still watch for its weaknesses, instability and overfitting, and evaluate it on separate test data. The source notes no single method is best for all data sets.'],
+      detailedAnswer: ['The path from root to leaf is a readable series of conditions. The bank must still watch for its weaknesses, instability and overfitting, and evaluate it on separate test data. No single method is best for all data sets.'],
     },
   ],
 }

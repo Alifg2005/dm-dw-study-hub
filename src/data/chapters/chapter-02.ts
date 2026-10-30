@@ -129,7 +129,7 @@ const chapter: Chapter = {
         {
           type: 'callout',
           tone: 'supplement',
-          text: 'The slides show these positions only as a diagram. The inequalities above state the same relationship in words.',
+          text: 'These inequalities state the relationship in words.',
         },
       ],
     },
@@ -161,12 +161,7 @@ const chapter: Chapter = {
           type: 'callout',
           tone: 'key',
           title: 'Outliers',
-          text: 'The usual rule flags values more than 1.5 × IQR beyond the box: above Q3 + 1.5 × IQR or below Q1 − 1.5 × IQR.',
-        },
-        {
-          type: 'callout',
-          tone: 'source-note',
-          text: 'The slide phrases this briefly as "a value higher/lower than 1.5 x IQR". Read it as a distance measured from the quartiles, as written above.',
+          text: 'Read the rule as a distance from the quartiles: above Q3 + 1.5 × IQR or below Q1 − 1.5 × IQR.',
         },
       ],
     },
@@ -241,8 +236,8 @@ const chapter: Chapter = {
         {
           type: 'callout',
           tone: 'key',
-          title: 'Marked self-study in the source',
-          text: 'These slides are labeled self-study. They are summarized here so that you can decide how to prepare for them.',
+          title: 'Self-study topic',
+          text: 'Summarized here so you can decide how to prepare.',
         },
         {
           type: 'paragraph',
@@ -287,7 +282,7 @@ const chapter: Chapter = {
           type: 'table',
           table: {
             caption: 'Ways data can be dirty',
-            headers: ['Problem', 'Meaning', 'Example from the source'],
+            headers: ['Problem', 'Meaning', 'Example'],
             rows: [
               ['**Incomplete**', 'Missing values, attributes, or only aggregate data', '`Occupation = " "`'],
               ['**Noisy**', 'Noise, errors, or outliers', '`Salary = "−10"`'],
@@ -362,8 +357,8 @@ const chapter: Chapter = {
         { type: 'formula', label: 'Decimal scaling', expression: 'v′ = v / 10^{j}', note: 'j is the smallest integer such that Max(|v′|) < 1.' },
         {
           type: 'callout',
-          tone: 'source-note',
-          text: 'The normalization slide says an income of $73,000 in its text, but its calculations use $73,600 and give 0.716 and 1.225. The worked example below uses $73,600 so that the arithmetic matches.',
+          tone: 'supplement',
+          text: 'The worked example uses $73,600 so the arithmetic matches (0.716 and 1.225).',
         },
         {
           type: 'list',
@@ -573,11 +568,11 @@ const chapter: Chapter = {
     'Practice each normalization and each Minkowski case by hand, and memorize the formulas.',
     'Ordinal values have an order but unknown gaps. Zip codes and ID numbers are nominal, even though they look numeric.',
     'For asymmetric binary distance, drop t from the denominator. Symmetric binary keeps it.',
-    'Know the six ways to handle missing data and the four ways to handle noisy data, in the source\'s wording.',
+    'Know the six ways to handle missing data and the four ways to handle noisy data.',
     'Practice binning by hand. Smoothing by boundaries replaces each value with the closer boundary.',
     'Mistakes to avoid: Euclidean is p = 2, and supremum is the largest single attribute difference.',
-    'Slides marked self-study (binary, categorical, and mixed proximity) are lower priority, but know the formulas if your instructor includes them.',
-    'The normalization slide mixes $73,000 and $73,600. In an exam, use the numbers the question gives you.',
+    'Binary, categorical, and mixed proximity: lighter topics; know the formulas.',
+    'In an exam, use the numbers the question gives you.',
   ],
 
   mcqs: [
@@ -688,7 +683,7 @@ const chapter: Chapter = {
     },
     {
       id: 'c2-q16', topic: 'Missing data', difficulty: 'medium', skill: 'comparison',
-      question: 'Which way of filling a missing income value does the source describe as smarter than using the overall attribute mean?',
+      question: 'Which way of filling a missing income value is considered smarter than using the overall attribute mean?',
       options: ['The attribute mean for all samples of the same class', 'A global constant such as "unknown"', 'Ignoring the attribute everywhere', 'Replacing it with the maximum income'],
       correctIndex: 0,
       explanation: 'Using the class-specific mean takes into account the group that the record belongs to.',
@@ -698,7 +693,7 @@ const chapter: Chapter = {
       question: 'Two databases store annual revenue in one table and monthly revenue in another. Which problem and detection method apply?',
       options: ['Redundancy from a derivable attribute, detected with correlation or covariance analysis', 'Disguised missing data, detected by sampling', 'Noise, detected with a boxplot of customer names', 'Entity identification, detected with decimal scaling'],
       correctIndex: 0,
-      explanation: 'Annual revenue can be derived from other data, so it is redundant. The source detects redundancy with correlation and covariance analysis.',
+      explanation: 'Annual revenue can be derived from other data, so it is redundant. Redundancy can be detected with correlation and covariance analysis.',
     },
     {
       id: 'c2-q18', topic: 'Normalization', difficulty: 'medium', skill: 'technical',
@@ -820,7 +815,7 @@ const chapter: Chapter = {
       id: 'c2-w10', format: 'compare', topic: 'Proximity',
       prompt: 'Compare **symmetric** and **asymmetric** binary dissimilarity.',
       shortAnswer: 'Symmetric uses (r + s) / (q + r + s + t). Asymmetric uses (r + s) / (q + r + s), ignoring shared zeros.',
-      detailedAnswer: ['For symmetric attributes, both outcomes are equally important, so matches on 0 count. For asymmetric attributes, the important outcome is 1, so t, where both objects are 0, is left out.', 'The source marks this topic as self-study.'],
+      detailedAnswer: ['For symmetric attributes, both outcomes are equally important, so matches on 0 count. For asymmetric attributes, the important outcome is 1, so t, where both objects are 0, is left out.', 'This is a self-study topic.'],
       answerTable: {
         headers: ['Aspect', 'Symmetric', 'Asymmetric'],
         rows: [
@@ -896,7 +891,7 @@ const chapter: Chapter = {
       prompt: 'A form forces users to enter a birthday, and many choose January 1. What data problem is this, and what should an analyst do?',
       shortAnswer: 'Disguised missing data. Detect the suspicious value using distribution checks and treat it as missing.',
       detailedAnswer: [
-        'The source describes intentional disguised missing data with this exact example: January 1 as everyone\'s birthday. The value looks valid but actually hides a missing value.',
+        'This is intentional disguised missing data: January 1 as everyone\'s birthday. The value looks valid but actually hides a missing value.',
         'Discrepancy detection on the distribution of values can reveal the unusual spike. The analyst can then treat these values as missing and apply a missing-data method.',
       ],
     },

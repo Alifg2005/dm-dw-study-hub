@@ -6,8 +6,8 @@ import { RichText } from './RichText'
 
 const calloutStyles: Record<CalloutTone, { label: string; icon: typeof Lightbulb; className: string }> = {
   key: { label: 'Key point', icon: BookmarkCheck, className: 'border-accent bg-accent-soft' },
-  supplement: { label: 'Beyond the slides', icon: Lightbulb, className: 'border-line-strong bg-sunken' },
-  'source-note': { label: 'Note on the source', icon: FileWarning, className: 'border-danger bg-danger-soft' },
+  supplement: { label: 'Additional note', icon: Lightbulb, className: 'border-line-strong bg-sunken' },
+  'source-note': { label: 'Note', icon: FileWarning, className: 'border-danger bg-danger-soft' },
 }
 
 function Callout({ tone, title, text }: { tone: CalloutTone; title?: string; text: string }) {

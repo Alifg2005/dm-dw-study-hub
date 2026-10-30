@@ -81,7 +81,7 @@ const chapter: Chapter = {
         {
           type: 'table',
           table: {
-            caption: 'The course\'s running example',
+            caption: 'Running example',
             headers: ['Tid', 'Items bought'],
             rows: [
               ['1', 'Beer, Nuts, Diaper'],
@@ -137,7 +137,7 @@ const chapter: Chapter = {
       blocks: [
         {
           type: 'paragraph',
-          text: 'Downward closure gives the **Apriori pruning principle**: if any itemset is infrequent, its supersets should not even be generated. Every transaction containing {beer, diaper, nuts} also contains {beer, diaper}. The source lists three major scalable approaches: **Apriori** (level-wise, join-based), **Eclat** (vertical data format), and **FP-growth** (pattern projection and growth).',
+          text: 'Downward closure gives the **Apriori pruning principle**: if any itemset is infrequent, its supersets should not even be generated. Every transaction containing {beer, diaper, nuts} also contains {beer, diaper}. There are three major scalable approaches: **Apriori** (level-wise, join-based), **Eclat** (vertical data format), and **FP-growth** (pattern projection and growth).',
         },
         {
           type: 'list',
@@ -213,7 +213,7 @@ const chapter: Chapter = {
         { type: 'formula', label: 'Chi-square', expression: 'χ^{2} = Σ (Observed − Expected)^{2} / Expected', note: 'Expected = (row total × column total) / grand total.' },
         {
           type: 'paragraph',
-          text: 'Lift and χ^{2} are more telling than support and confidence, but they have their own weakness. They are **not null-invariant**, so null transactions can change their value. In the source\'s data set D, BC (100) is much rarer than B¬C (1000) and ¬BC (1000), yet 100,000 null transactions push lift to 8.44 and χ^{2} to 670.',
+          text: 'Lift and χ^{2} are more telling than support and confidence, but they have their own weakness. They are **not null-invariant**, so null transactions can change their value. In one data set, BC (100) is much rarer than B¬C (1000) and ¬BC (1000), yet 100,000 null transactions push lift to 8.44 and χ^{2} to 670.',
         },
         {
           type: 'table',
@@ -397,7 +397,7 @@ const chapter: Chapter = {
   ],
 
   examNotes: [
-    'Expect calculations of support, confidence, and lift from a small table. Keep the percent and count forms straight.',
+    'Practice calculating support, confidence, and lift from a small table. Keep the percent and count forms straight.',
     'Practice listing frequent, closed, and maximal itemsets. Closed checks equal support among supersets, and maximal checks frequent supersets.',
     'In Apriori, candidates must survive both the self-join and the prune step. Always show the pruned candidates.',
     'For FP-trees, sort by the f-list before inserting and drop infrequent items. Forgetting this is the most common error.',
@@ -554,7 +554,7 @@ const chapter: Chapter = {
       id: 'c4-w1', format: 'short', topic: 'Support and confidence',
       prompt: 'What do support and confidence measure?',
       shortAnswer: 'Support measures how often an itemset occurs in the data. Confidence measures how often transactions containing X also contain Y.',
-      detailedAnswer: ['Support of X → Y is the fraction of transactions containing both X and Y. Confidence is sup(X, Y) / sup(X), a conditional probability. The source says these metrics together capture the popularity and correlation of X and Y.'],
+      detailedAnswer: ['Support of X → Y is the fraction of transactions containing both X and Y. Confidence is sup(X, Y) / sup(X), a conditional probability. These metrics together capture the popularity and correlation of X and Y.'],
     },
     {
       id: 'c4-w2', format: 'short', topic: 'Downward closure',
@@ -604,7 +604,7 @@ const chapter: Chapter = {
         { term: 'IR near 1', definition: 'The two directional relationships are highly imbalanced.' },
       ],
       shortAnswer: 'Lift 1: independent. Above 1: positive. Below 1: negative. IR 0: balanced. IR near 1: imbalanced.',
-      detailedAnswer: ['In the source, D4, D5, and D6 all have Kulc 0.5, but with IR values of 0, 0.89, and 0.99.'],
+      detailedAnswer: ['For example, data sets D4, D5, and D6 can all have Kulc 0.5, but with IR values of 0, 0.89, and 0.99.'],
     },
     {
       id: 'c4-w8', format: 'compare', topic: 'Closed and max-patterns',
@@ -658,7 +658,7 @@ const chapter: Chapter = {
     },
     {
       id: 'c4-w13', format: 'list', topic: 'Interestingness',
-      prompt: 'List the five null-invariant measures from the source.',
+      prompt: 'List the five null-invariant measures covered in this chapter.',
       shortAnswer: 'AllConf, Jaccard, Cosine, Kulczynski, and MaxConf.',
       detailedAnswer: ['All five have the range [0, 1], and they are essentially min, max, and mean variants of p = P(B|A) and q = P(A|B). They can disagree on imbalanced data sets such as D4 to D6.'],
     },
